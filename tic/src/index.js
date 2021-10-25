@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
-
+import Board from './Board.js';
 
 ReactDOM.render(
   <React.StrictMode>
-    <h1>Hello World</h1>
+    <Board/>
   </React.StrictMode>,
   document.getElementById('root')
 );
