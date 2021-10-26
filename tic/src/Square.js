@@ -1,12 +1,12 @@
 import React from "react";
 import "./square.css";
 
-const Square = (props) => {
-  return (
-    <button className="square" onClick={props.btnClicked}>
-      {props.marker}
-    </button>
-  )
-}
+const Square = (props) => (
+  <button
+    onClick={props.onClick}
+    className="square">
+    {props.value}
+  </button>
+)
 
 export default Square

@@ -3,56 +3,47 @@ import Square from './Square.js';
 
 import "./board.css"
 
-
-
 class Board extends React.Component{
 
-  text = "Next Player: ";
-  status = "X"
-
-  btnClicked = (event) => {
-
-    if(this.state.marker === "X")
-        this.setState({
-          marker: "O"
-        })
-
-    else
-      this.setState({
-        marker: "X"
-      })
-
-  }
+  status = "Next Player: X";
 
   constructor(){
     super();
     this.state = {
-      marker: `X`
+      squares: Array(9).fill(null)
     }
   }
 
-  createSquare = (value) => {
-    return <Square value={value} btnClicked={this.btnClicked} marker={this.state.marker}/>;
+  handler(index){
+    const squares = this.state.squares.slice();
+    squares[index] = "X";
+    this.setState({
+      squares: squares
+    })
   }
+
+  createSquare = (i) => <Square
+    value={this.state.squares[i]}
+    onClick={() => this.handler(i)} />
 
   render(){
     return(
       <div>
-        <div className='marker'>{`${this.text} ${this.state.marker}`}</div>
+        <div className="status">{this.status}</div>
         <div className="row">
+          {this.createSquare(0)}
           {this.createSquare(1)}
           {this.createSquare(2)}
-          {this.createSquare(3)}
         </div>
         <div className="row">
+          {this.createSquare(3)}
           {this.createSquare(4)}
           {this.createSquare(5)}
-          {this.createSquare(6)}
         </div>
         <div className="row">
+          {this.createSquare(6)}
           {this.createSquare(7)}
           {this.createSquare(8)}
-          {this.createSquare(9)}
         </div>
       </div>
     );
