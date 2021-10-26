@@ -3,8 +3,8 @@ import "./square.css";
 
 const Square = (props) => {
   return (
-    <button className="square">
-      {props.value}
+    <button className="square" onClick={props.btnClicked}>
+      {props.marker}
     </button>
   )
 }
